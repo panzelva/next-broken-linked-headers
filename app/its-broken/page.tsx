@@ -19,12 +19,18 @@ export default async function BrokenPage() {
         If you refresh this page (ie not a `Link` navigate but a hard navigate,
         it works fine.
       </div>
-      <div>
-        <Link href="/its-broken">It even breaks when you link to itself.</Link>
-        <Link href="/with-no-loader-not-broken">
-          But not when you link to a page with no <code>loader.tsx</code>.
-        </Link>
-      </div>
+      <ul>
+        <li>
+          <Link href="/its-broken">
+            It even breaks when you link to itself.
+          </Link>
+        </li>
+        <li>
+          <Link href="/with-no-loader-not-broken">
+            But not when you link to a page with no <code>loader.tsx</code>.
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }
