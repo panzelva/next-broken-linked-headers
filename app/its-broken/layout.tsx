@@ -10,12 +10,22 @@ export default async function BrokenPage({ children }) {
 
   const cookieStore = cookies();
   const test = cookieStore.get('testcookie');
+
+  const headerList = headers();
+  const allheaders = [];
+
+  for (const pair of headerList.entries()) {
+    allheaders.push(`${pair[0]}: ${pair[1]}`);
+  }
+
   return (
     <div>
       <div style={{ border: '1px solid blue', margin: '0 0 20px' }}>
         <div>Layout:</div>
         <div>It's broken:</div>
-        <pre>Test Cookie Value: `{test.value}`</pre>
+        <pre>Test Cookie Value: `{test?.value || 'undefined'}`</pre>
+        <div>Headers:</div>
+        <pre>{JSON.stringify(allheaders, null, 2)}</pre>
         <div>
           If you refresh this page (ie not a `Link` navigate but a hard
           navigate, it works fine.
