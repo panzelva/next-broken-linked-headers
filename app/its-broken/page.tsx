@@ -1,4 +1,5 @@
 import { cookies, headers } from 'next/headers';
+import Link from 'next/link';
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -17,6 +18,9 @@ export default async function BrokenPage() {
       <div>
         If you refresh this page (ie not a `Link` navigate but a hard navigate,
         it works fine.
+      </div>
+      <div>
+        <Link href="/its-broken">It even breaks when you link to itself.</Link>
       </div>
     </div>
   );
