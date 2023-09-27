@@ -1,26 +1,22 @@
-import { cookies, headers } from 'next/headers';
 import Link from 'next/link';
-
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import { DisplayHeaders, sleep } from '../display-headers';
 
 /** Add your relevant code here for the issue to reproduce */
 export default async function BrokenPage() {
-  await sleep(2000);
+  await sleep(1);
 
-  const cookieStore = cookies();
-  const test = cookieStore.get('testcookie');
   return (
     <div>
-      <div>It's broken:</div>
-      <pre>Test Cookie Value: `{test.value}`</pre>
       <div>
-        If you refresh this page (ie not a `Link` navigate but a hard navigate,
-        it works fine.
+        <code>page.tsx</code> is fine here:
       </div>
+      <DisplayHeaders />
+
       <div>
-        <Link href="/its-broken">It even breaks when you link to itself.</Link>
+        <Link href="/its-broken">
+          But linking to a page with <code>layout.tsx</code> alongside{' '}
+          <code>loading.tsx</code> breaks.
+        </Link>
       </div>
     </div>
   );
