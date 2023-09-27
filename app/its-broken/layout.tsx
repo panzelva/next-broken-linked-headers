@@ -1,10 +1,8 @@
-import { DisplayHeaders, getTestCookieValue, sleep } from '../display-headers';
+import { DisplayHeaders, getTestCookieValue } from '../display-headers';
 import Link from 'next/link';
 
 /** Add your relevant code here for the issue to reproduce */
-export default async function BrokenPage({ children }) {
-  await sleep(1);
-
+export default function BrokenPage({ children }) {
   const cookieValue = getTestCookieValue();
 
   return (

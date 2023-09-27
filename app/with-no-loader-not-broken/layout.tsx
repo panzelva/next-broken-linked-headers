@@ -1,10 +1,7 @@
-import { cookies, headers } from 'next/headers';
-import { DisplayHeaders, sleep } from '../display-headers';
+import { DisplayHeaders } from '../display-headers';
 
 /** Add your relevant code here for the issue to reproduce */
-export default async function BrokenPage({ children }) {
-  await sleep(1);
-
+export default function BrokenPage({ children }) {
   return (
     <div>
       <div

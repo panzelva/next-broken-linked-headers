@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import { DisplayHeaders, sleep } from '../display-headers';
+import { DisplayHeaders } from '../display-headers';
 
 /** Add your relevant code here for the issue to reproduce */
-export default async function BrokenPage() {
-  await sleep(1);
-
+export default function BrokenPage() {
   return (
     <div>
       <div>
