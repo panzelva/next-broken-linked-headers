@@ -21,6 +21,9 @@ export default async function BrokenPage() {
       </div>
       <div>
         <Link href="/its-broken">It even breaks when you link to itself.</Link>
+        <Link href="/with-no-loader-not-broken">
+          But not when you link to a page with no <code>loader.tsx</code>.
+        </Link>
       </div>
     </div>
   );
