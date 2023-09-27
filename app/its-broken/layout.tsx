@@ -9,7 +9,9 @@ export default async function BrokenPage({ children }) {
 
   return (
     <div>
-      <div style={{ border: '1px solid blue', margin: '0 0 20px' }}>
+      <div
+        style={{ border: '1px solid blue', margin: '0 0 20px', padding: 20 }}
+      >
         {cookieValue ? (
           <div>It's fine when loaded directly</div>
         ) : (
@@ -37,7 +39,9 @@ export default async function BrokenPage({ children }) {
           </li>
         </ul>
       </div>
-      <div style={{ border: '1px solid green', margin: '0 0 20px' }}>
+      <div
+        style={{ border: '1px solid green', margin: '0 0 20px', padding: 20 }}
+      >
         <div>Page</div>
         <div>{children}</div>
       </div>
