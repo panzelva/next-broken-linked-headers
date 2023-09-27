@@ -25,7 +25,16 @@ export default async function BrokenPage({ children }) {
         <div>It's broken:</div>
         <pre>Test Cookie Value: `{test?.value || 'undefined'}`</pre>
         <div>Headers:</div>
-        <pre>{JSON.stringify(allheaders, null, 2)}</pre>
+        <pre
+          style={{
+            height: 200,
+            overflow: 'scroll',
+            padding: 5,
+            background: '#eee',
+          }}
+        >
+          {JSON.stringify(allheaders, null, 2)}
+        </pre>
         <div>
           If you refresh this page (ie not a `Link` navigate but a hard
           navigate, it works fine.
