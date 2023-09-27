@@ -4,10 +4,14 @@ export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function DisplayHeaders() {
+export function getTestCookieValue() {
   const cookieStore = cookies();
   const test = cookieStore.get('testcookie');
 
+  return test?.value;
+}
+
+export function DisplayHeaders() {
   const headerList = headers();
   const allheaders = [];
 
@@ -17,13 +21,13 @@ export function DisplayHeaders() {
 
   return (
     <>
-      <pre>Test Cookie Value: `{test?.value || 'undefined'}`</pre>
+      <pre>Test Cookie Value: `{getTestCookieValue() || 'undefined'}`</pre>
       <div>Headers:</div>
       <pre
         style={{
-          height: 200,
+          maxHeight: 200,
           overflow: 'scroll',
-          padding: 5,
+          padding: 10,
           background: '#eee',
         }}
       >

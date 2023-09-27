@@ -1,17 +1,23 @@
-import { DisplayHeaders, sleep } from '../display-headers';
+import { DisplayHeaders, getTestCookieValue, sleep } from '../display-headers';
 import Link from 'next/link';
 
 /** Add your relevant code here for the issue to reproduce */
 export default async function BrokenPage({ children }) {
   await sleep(1);
 
+  const cookieValue = getTestCookieValue();
+
   return (
     <div>
       <div style={{ border: '1px solid blue', margin: '0 0 20px' }}>
-        <div>
-          It's broken in <code>layout.tsx</code> alongside a{' '}
-          <code>loader.tsx</code>:
-        </div>
+        {cookieValue ? (
+          <div>It's fine when loaded directly</div>
+        ) : (
+          <div>
+            It's broken in <code>layout.tsx</code> alongside a{' '}
+            <code>loader.tsx</code>:
+          </div>
+        )}
         <DisplayHeaders />
 
         <ul>
