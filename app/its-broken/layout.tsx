@@ -1,5 +1,5 @@
-import { DisplayHeaders, getTestCookieValue } from '../display-headers';
-import Link from 'next/link';
+import { DisplayHeaders, getTestCookieValue } from "../display-headers";
+import Link from "next/link";
 
 /** Add your relevant code here for the issue to reproduce */
 export default function BrokenPage({ children }) {
@@ -8,13 +8,13 @@ export default function BrokenPage({ children }) {
   return (
     <div>
       <div
-        style={{ border: '1px solid blue', margin: '0 0 20px', padding: 20 }}
+        style={{ border: "1px solid blue", margin: "0 0 20px", padding: 20 }}
       >
         {cookieValue ? (
           <div>It's fine when loaded directly</div>
         ) : (
           <div>
-            It's broken in <code>layout.tsx</code> alongside a{' '}
+            It's broken in <code>layout.tsx</code> alongside a{" "}
             <code>loader.tsx</code>:
           </div>
         )}
@@ -38,7 +38,7 @@ export default function BrokenPage({ children }) {
         </ul>
       </div>
       <div
-        style={{ border: '1px solid green', margin: '0 0 20px', padding: 20 }}
+        style={{ border: "1px solid green", margin: "0 0 20px", padding: 20 }}
       >
         <div>Page</div>
         <div>{children}</div>
